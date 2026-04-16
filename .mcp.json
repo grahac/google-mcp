@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "google-mcp": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/server/index.js"],
+      "env": {
+        "GOOGLE_MCP_CONFIG": "${HOME}/.config/google-mcp/tokens.json"
+      }
+    }
+  }
+}

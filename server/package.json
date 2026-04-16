@@ -1,0 +1,14 @@
+{
+  "name": "google-mcp-server",
+  "version": "2.0.1",
+  "description": "Gmail + Google Calendar MCP server using OAuth2 (no gcloud required)",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "setup": "node setup.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

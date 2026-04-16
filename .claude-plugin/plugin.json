@@ -1,0 +1,28 @@
+{
+  "name": "google-mcp",
+  "version": "2.0.1",
+  "description": "Gmail + Google Calendar for any Google account. No gcloud required — uses OAuth2 refresh tokens stored locally. Supports multiple accounts simultaneously.",
+  "author": "Charlie Graham / Second Coffee",
+  "tools": [
+    {
+      "name": "gmail_search",
+      "description": "Search Gmail messages"
+    },
+    {
+      "name": "gmail_read",
+      "description": "Read a full Gmail message"
+    },
+    {
+      "name": "gmail_create_draft",
+      "description": "Create a Gmail draft"
+    },
+    {
+      "name": "calendar_list_events",
+      "description": "List upcoming calendar events"
+    },
+    {
+      "name": "calendar_get_event",
+      "description": "Get a calendar event's full details"
+    }
+  ]
+}
