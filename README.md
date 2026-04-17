@@ -38,21 +38,35 @@ Opens Google's consent screen → log in → paste the code back. Saves a refres
 
 ### Step 3: Install the plugin
 
-**Option A — Cowork plugin install (recommended):** install this repo as a Claude / Cowork plugin (point it at the repo URL or a downloaded `.plugin` zip) and restart.
+**Option A — Claude Code CLI:**
 
-**Option B — Manual install via `claude_desktop_config.json`:** clone the repo, run `setup.js` once, then add this under `mcpServers` in `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
+```bash
+claude mcp add google-mcp \
+  -e GOOGLE_MCP_CONFIG="$HOME/.config/google-mcp/tokens.json" \
+  -- node /path/to/google-mcp/server/index.js
+```
+
+Or add it through the Claude Code settings UI: **Settings > Developer > MCP Servers > Add**, then fill in:
+
+- **Name:** `google-mcp`
+- **Command:** `node /path/to/google-mcp/server/index.js`
+- **Environment:** `GOOGLE_MCP_CONFIG` = `~/.config/google-mcp/tokens.json`
+
+**Option B — Claude Desktop / Cowork:** install this repo as a plugin (point it at the repo URL or a downloaded `.plugin` zip) and restart.
+
+**Option C — Manual `claude_desktop_config.json`:** add this under `mcpServers` in `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
 
 ```json
 "google-mcp": {
   "command": "/usr/local/bin/node",
-  "args": ["/absolute/path/to/google-mcp/server/index.js"],
+  "args": ["/path/to/google-mcp/server/index.js"],
   "env": { "GOOGLE_MCP_CONFIG": "${HOME}/.config/google-mcp/tokens.json" }
 }
 ```
 
-Use an absolute path for `command` — a bare `"node"` can silently break if your shell PATH and the GUI-launch PATH diverge.
+Tip: use an absolute path for `command` — a bare `"node"` can silently break when the GUI-launch PATH diverges from your shell PATH.
 
-Either way, the plugin picks up your single account automatically.
+All options auto-select your account when only one is configured.
 
 ---
 
