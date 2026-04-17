@@ -19,14 +19,33 @@ Nothing in the plugin files has your identity baked in. Install once, add as man
 
 ## Setup (one-time, ~5 minutes)
 
-### Step 1: Create a Google OAuth App
+### Step 1: Create a Google Cloud project and OAuth credentials
 
-1. Go to [Google Cloud Console](https://console.cloud.google.com/) — create a project or reuse one.
-2. Enable [Gmail API](https://console.cloud.google.com/apis/library/gmail.googleapis.com) and [Google Calendar API](https://console.cloud.google.com/apis/library/calendar-json.googleapis.com).
-3. **Credentials → Create Credentials → OAuth client ID → Desktop app** (name it "google-mcp").
-4. Download the `client_secrets.json`.
+1. Go to [Google Cloud Console](https://console.cloud.google.com/) and create a new project (or reuse an existing one). Name it something like "google-mcp".
 
-> One OAuth app works for unlimited accounts. You only do this step once, even when sharing with other people (each person creates their own OAuth app — Google doesn't let you share client secrets).
+2. **Enable the APIs** you need. At minimum:
+   - [Gmail API](https://console.cloud.google.com/apis/library/gmail.googleapis.com) — click **Enable**
+   - [Google Calendar API](https://console.cloud.google.com/apis/library/calendar-json.googleapis.com) — click **Enable**
+
+3. **Configure the OAuth consent screen:**
+   - Go to [APIs & Services → OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent)
+   - Choose **External** (unless you have a Google Workspace org and want Internal)
+   - Fill in the required fields: app name (e.g. "google-mcp"), user support email (your email), developer contact email (your email). The rest can be left blank.
+   - On the **Scopes** page, click **Add or Remove Scopes** and add:
+     - `https://www.googleapis.com/auth/gmail.modify`
+     - `https://www.googleapis.com/auth/calendar`
+   - On the **Test users** page, click **Add Users** and enter the Google email address(es) you want to connect. While the app is in "Testing" status, only these accounts can authorize. You can add more later.
+   - Click **Save and Continue** through to the summary, then **Back to Dashboard**.
+
+4. **Create OAuth credentials:**
+   - Go to [APIs & Services → Credentials](https://console.cloud.google.com/apis/credentials)
+   - Click **Create Credentials → OAuth client ID**
+   - Application type: **Desktop app**
+   - Name it "google-mcp" (or anything you'll recognize)
+   - Click **Create**
+   - Click **Download JSON** — this saves a `client_secret_*.json` file to your Downloads folder
+
+> Each person using this plugin creates their own OAuth app and credentials. Google doesn't allow sharing client secrets across users.
 
 ### Step 2: Authorize your first account
 
