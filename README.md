@@ -56,9 +56,7 @@ Or via the UI: **Settings > Developer > MCP Servers > Add**, then fill in:
 
 #### Claude Desktop / Cowork
 
-**Plugin install:** install this repo as a Cowork plugin (point it at the repo URL or a downloaded `.plugin` zip) and restart.
-
-**Manual config:** add this under `mcpServers` in `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
+Add this under `mcpServers` in `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
 
 ```json
 "google-mcp": {
