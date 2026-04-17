@@ -36,9 +36,11 @@ node setup.js --client-secrets ~/Downloads/client_secret_*.json
 
 Opens Google's consent screen → log in → paste the code back. Saves a refresh token to `~/.config/google-mcp/tokens.json`.
 
-### Step 3: Install the plugin
+### Step 3: Install the MCP server
 
-**Option A — Claude Code CLI:**
+Claude Code and Claude Desktop / Cowork have **separate** MCP configurations — installing in one does not make it available in the other. Pick the option(s) that match where you use Claude.
+
+#### Claude Code (CLI / VS Code / JetBrains)
 
 ```bash
 claude mcp add google-mcp \
@@ -46,15 +48,17 @@ claude mcp add google-mcp \
   -- node /path/to/google-mcp/server/index.js
 ```
 
-Or add it through the Claude Code settings UI: **Settings > Developer > MCP Servers > Add**, then fill in:
+Or via the UI: **Settings > Developer > MCP Servers > Add**, then fill in:
 
 - **Name:** `google-mcp`
 - **Command:** `node /path/to/google-mcp/server/index.js`
 - **Environment:** `GOOGLE_MCP_CONFIG` = `~/.config/google-mcp/tokens.json`
 
-**Option B — Claude Desktop / Cowork:** install this repo as a plugin (point it at the repo URL or a downloaded `.plugin` zip) and restart.
+#### Claude Desktop / Cowork
 
-**Option C — Manual `claude_desktop_config.json`:** add this under `mcpServers` in `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
+**Plugin install:** install this repo as a Cowork plugin (point it at the repo URL or a downloaded `.plugin` zip) and restart.
+
+**Manual config:** add this under `mcpServers` in `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS):
 
 ```json
 "google-mcp": {
