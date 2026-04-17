@@ -1,8 +1,15 @@
 # google-mcp
 
-Gmail + Google Calendar MCP server for Claude. Works with **any Google account** — no gcloud CLI required. Uses OAuth2 refresh tokens stored in a local file, so it works in sandboxed desktop apps too.
+Gmail + Google Calendar MCP server for Claude. Works with **any Google account** — no gcloud CLI, no npm install, no external dependencies. Just Node.js (>= 18) and a Google Cloud OAuth client.
 
-**Supports multiple accounts simultaneously.** Share this plugin with anyone.
+Uses OAuth2 refresh tokens stored in a local file, so it works in sandboxed desktop apps too. **Supports multiple accounts simultaneously.**
+
+## Requirements
+
+- **Node.js >= 18** — the only dependency. Everything uses Node's built-in stdlib (`https`, `readline`, `fs`). No `npm install` needed.
+- **A Google Cloud project with OAuth credentials** — the setup below walks you through creating one (~5 minutes).
+
+No gcloud CLI. No Google SDK. No `node_modules`.
 
 ---
 
