@@ -37,7 +37,7 @@ Nothing in the plugin files has your identity baked in. Install once, add as man
 3. **Configure the OAuth consent screen:**
    - Go to [APIs & Services → OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent)
    - Choose **External** (unless you have a Google Workspace org and want Internal)
-   - Fill in the required fields: app name (e.g. "google-mcp"), user support email (your email), developer contact email (your email). The rest can be left blank.
+   - Fill in the required fields: app name (e.g. "email-mcp"), user support email (your email), developer contact email (your email). The rest can be left blank. Google will not allow you to use "Google" or similar blacklisted terms in the app name.
    - On the **Scopes** page, click **Add or Remove Scopes** and add:
      - `https://www.googleapis.com/auth/gmail.modify`
      - `https://www.googleapis.com/auth/calendar`
